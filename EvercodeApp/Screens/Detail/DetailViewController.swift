@@ -1,5 +1,9 @@
 import UIKit
 
+protocol DetailViewControllerDelegate: AnyObject {
+    func dismissDetail()
+}
+
 final class DetailViewController: UIViewController {
         
     init() {
