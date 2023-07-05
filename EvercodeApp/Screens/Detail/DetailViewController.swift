@@ -1,8 +1,15 @@
 import UIKit
 
+protocol DetailViewControllerDelegate: AnyObject {
+    func dismissDetail()
+}
+
 final class DetailViewController: UIViewController {
-        
-    init() {
+       
+    private weak var delegate: DetailViewControllerDelegate?
+    
+    init(delegate: DetailViewControllerDelegate) {
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,6 +42,6 @@ final class DetailViewController: UIViewController {
     }
     
     @objc func didPressDismissButton() {
-        
+        delegate?.dismissDetail()
     }
 }
